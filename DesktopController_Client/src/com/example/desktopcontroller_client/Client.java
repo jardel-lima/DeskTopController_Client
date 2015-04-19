@@ -23,14 +23,10 @@ public class Client extends Activity {
 			hostAddress = data.getStringExtra("host");
 			port = data.getIntExtra("port", 0 );
 			
-			if(port > 0){
-				client = new Socket(hostAddress,port);
-				String msg = "Connected to: "+client.getInetAddress().getHostAddress();
-				Toast.makeText(this, msg ,Toast.LENGTH_LONG).show();
-				client.close();
-			}
-			else
-				Toast.makeText(this, "Invalid port Number",Toast.LENGTH_LONG).show();
+			client = new Socket(hostAddress,port);
+			String msg = "Connected to: "+client.getInetAddress().getHostAddress();
+			Toast.makeText(this, msg ,Toast.LENGTH_LONG).show();
+			client.close();
 			
 		}catch(Exception ex){
 			Toast.makeText(this, "Error: "+ex.getMessage(),Toast.LENGTH_LONG).show();
